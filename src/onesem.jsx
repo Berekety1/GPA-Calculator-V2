@@ -38,6 +38,28 @@ function GetSubject({ subject, updateSubject, del, grade_map }) {
     );
 }
 
+function Display({subjects}){
+    return(
+        <div>
+          <table>
+                    <tr>
+                        <th>Subject Name</th>
+                        <th>Letter Grade</th>
+                        <th>Credit</th>
+                    </tr>
+
+                    {subjects.map((subject) => 
+                    <tr>
+                        <td>{subject.name}</td>
+                        <td>{subject.letter}</td>
+                        <td>{subject.credit}</td>
+                    </tr>)
+                    }
+                </table>
+        </div>
+    );
+}
+
 function OneSem() {
     const [user, setUser] = useState({
         name: "",
@@ -47,6 +69,8 @@ function OneSem() {
     const [subjects, setSubjects] = useState([]);
 
     const [result, setResult] = useState(null);
+
+    const [calculated,setCalculated] = useState(false);
 
     function addSubject() {
         setSubjects((prev) => [
@@ -107,6 +131,7 @@ function OneSem() {
         }
 
         setResult((totalQualityPoints / totalCredits).toFixed(2));
+        setCalculated(true)
     }
 
     return (
@@ -156,7 +181,9 @@ function OneSem() {
             <br />
 
             <button onClick={calculate}>Calculate GPA</button>
-
+             
+                {calculated ? <Display subjects = {subjects}/> : null}
+             
             <h2>GPA: {result}</h2>
         </>
     );
