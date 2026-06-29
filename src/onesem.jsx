@@ -82,6 +82,9 @@ function OneSem() {
                 credit: 0,
             },
         ]);
+
+        setCalculated(false)
+        setResult(null)
     }
 
     const GRADE_MAP = {
@@ -101,6 +104,7 @@ function OneSem() {
             )
         );
         setCalculated(false)
+        setResult(null)
     }
 
     function getgrade(grade_letter)
@@ -114,6 +118,7 @@ function OneSem() {
     prev.filter(subject => subject.id !== id)
 )
         setCalculated(false)
+        setResult(null)
     }
 
     function calculate() {
