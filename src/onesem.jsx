@@ -100,6 +100,7 @@ function OneSem() {
                     : subject
             )
         );
+        setCalculated(false)
     }
 
     function getgrade(grade_letter)
@@ -112,6 +113,7 @@ function OneSem() {
         setSubjects(prev =>
     prev.filter(subject => subject.id !== id)
 )
+        setCalculated(false)
     }
 
     function calculate() {
