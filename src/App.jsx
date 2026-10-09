@@ -67,7 +67,7 @@ export default function App() {
       <section className="summary" aria-live="polite">
         <div className="headline">
           <span className="label">Cumulative GPA</span>
-          <span className="big">{formatGpa(overall)}</span>
+          <span className={overall === null ? 'big muted' : 'big'}>{formatGpa(overall)}</span>
           <span className="muted">/ {max.toFixed(1)}</span>
         </div>
         <div className="bar" role="presentation">
